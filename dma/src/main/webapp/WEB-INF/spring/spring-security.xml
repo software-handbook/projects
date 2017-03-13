@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+    xmlns:beans="http://www.springframework.org/schema/beans" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans-3.1.xsd 
+http://www.springframework.org/schema/security 
+http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+    <beans:bean id="webSecurityExpressionHandler" class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler" />
+    <http auto-config="true">
+        <intercept-url pattern="/login" access="ROLE_ANONYMOUS" />
+        <intercept-url pattern="/reset-password" access="ROLE_ANONYMOUS,IS_AUTHENTICATED_FULLY" />
+        <intercept-url pattern="/confirm-reset-password" access="ROLE_ANONYMOUS,IS_AUTHENTICATED_FULLY" />
+        <intercept-url pattern="/resetPassword" access="ROLE_ANONYMOUS,IS_AUTHENTICATED_FULLY" />
+        <intercept-url pattern="/confirmResetPassword" access="ROLE_ANONYMOUS,IS_AUTHENTICATED_FULLY" />
+        <intercept-url pattern="/register" access="ROLE_ANONYMOUS" />
+        <intercept-url pattern="/doRegister" access="ROLE_ANONYMOUS" />
+
+        <intercept-url pattern="/resources/**" access="ROLE_ANONYMOUS,IS_AUTHENTICATED_FULLY" />
+        <intercept-url pattern="/img/**" access="ROLE_ANONYMOUS,IS_AUTHENTICATED_FULLY" />
+        <intercept-url pattern="/**" access="IS_AUTHENTICATED_FULLY" />
+
+        <form-login login-page="/login" default-target-url="/" authentication-failure-url="/login?error" />
+        <logout logout-success-url="/login" />
+    </http>
+    
+    <authentication-manager alias="authenticationManager">
+        <authentication-provider>
+            <user-service>
+                <user name="user" password="user" authorities="ROLE_USER" />
+                <user name="manager" password="manager" authorities="ROLE_MANAGER" />
+                <user name="admin" password="admin" authorities="ROLE_ADMIN" />
+            </user-service>
+        </authentication-provider>
+    </authentication-manager>
+    
+    <!-- Using LDAP -->
+<!--     <authentication-manager alias="authenticationManager"> -->
+<!--         <ldap-authentication-provider  -->
+<!--             user-search-filter="(uid={0})" -->
+<!--             user-search-base="ou=Users" -->
+<!--             group-search-filter="(member={0})" -->
+<!--             group-search-base="ou=Groups" -->
+<!--             group-role-attribute="cn" -->
+<!--             role-prefix="ROLE_"> -->
+<!--         </ldap-authentication-provider> -->
+<!--     </authentication-manager> -->
+<!--     <ldap-server url="ldap://localhost:389/dc=mekongsolution,dc=com" manager-dn="cn=Manager,dc=mekongsolution,dc=com" manager-password="password" /> -->
+</beans:beans>

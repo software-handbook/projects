@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration
+2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+  <definition name="system-error" extends="default">
+    <put-attribute name="header" value="" />
+    <put-attribute name="body" value="/WEB-INF/views/System/displaySystemError.jsp" />
+  </definition>
+  <definition name="init-data" extends="default">
+    <put-attribute name="body"
+      value="/WEB-INF/views/System/init-data.jsp" />
+  </definition>
+</tiles-definitions>

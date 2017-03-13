@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration
+2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+	<definition name="createTask" extends="default">
+		<put-attribute name="body" value="/WEB-INF/views/Request/createRequest.jsp" />
+	</definition>
+    <definition name="myListTask" extends="default">
+        <put-attribute name="body" value="/WEB-INF/views/Task/myListTask.jsp" />
+    </definition>
+
+    <definition name="searchTask" extends="default">
+        <put-attribute name="body" value="/WEB-INF/views/Task/searchTask.jsp" />
+    </definition>
+    
+    <definition name="myOpenTask" extends="default">
+        <put-attribute name="body" value="/WEB-INF/views/Task/myOpenTask.jsp" />
+    </definition>
+    
+     <definition name="detailTask" extends="default">
+        <put-attribute name="body" value="/WEB-INF/views/Task/detailTask.jsp" />
+    </definition>
+</tiles-definitions>

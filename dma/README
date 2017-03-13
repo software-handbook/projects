@@ -1,0 +1,58 @@
+DecisionMaker is a web application with technologies:
+- Spring
+- JPA Eclipselink
+
+Status: developing
+The latest version 0.0.7
+
+Development tools
+------------------------------------
+- IDE: Eclipse JEE Kepler
+- JPA Eclipselink
+
+How to run the project?
+------------------------------------
+Step 1) Start database HSQLDB
+On Windows, going to folder "hsqldb", execute script "start-dma-master.bat".
+On Linux, going to folder "hsqldb", execute script "start-dma-master.sh".
+
+Step 2) Open and run the project by Eclipse
+View configuration of database connection at "/dma/src/main/resources/META-INF/persistence.xml"
+Make sure the database connection to match with your database server.
+
+Start the project. Then open the link of appliction "http://localhost:8080/dma/login".
+
+The layout of screen login is not good because of missing CSS. Following below guideline to configure the CSS for Tomcat:
+
+In eclipse, right-click on the project, select menu "Run As > Run Configuration..." to display the dialog "Run Configurations".
+As default, the select item is "Tomcat v7.0 Server at localhost".
+In tab "Arguments", find value of argument "wtp.deploy".
+Example: you found this text in item "VM arguments": 
+-Dwtp.deploy="D:\jPackages\eclipse-jee-mars-1-win32\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp1\wtpwebapps"
+
+Please open folder "D:\jPackages\eclipse-jee-mars-1-win32\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp1\wtpwebapps". Then open folder "ROOT".
+
+Copy the folder "/dma/src/main/webapp/resources" from the project into the above "ROOT". It is "D:\jPackages\eclipse-jee-mars-1-win32\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp1\wtpwebapps\ROOT" in the example.
+
+Now, refresh the web page "http://localhost:8080/dma/login" by click hot key F5 from the browser.
+
+
+How to run the project with the database MySQL
+-----------------------------------------------
+1)
+Prepare database for MySQL
+create database dmamaster default character set utf8;
+GRANT ALL ON dmamaster.* TO dmamaster@localhost IDENTIFIED BY 'dmamaster';
+
+2) Configure database connection at "/dma/src/main/resources/META-INF/persistence.xml".
+
+How to pack and deploy the project?
+------------------------------------
+- Run the script package.sh
+
+TODO
+------------------------------------
+In the next version:
++ Change the top menu by using bootstrap instead of "htmlkickstart".
+
+Thach N. Le

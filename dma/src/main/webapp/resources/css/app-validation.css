@@ -1,0 +1,15 @@
+span.required{color:red;}
+
+/*---------------------------------
+    FORM VALIDATION
+-----------------------------------*/
+
+span.error {
+  color:red;
+  vertical-align: middle;
+  margin-top:0.5em;
+}
+
+p.error {
+  color:red;
+}

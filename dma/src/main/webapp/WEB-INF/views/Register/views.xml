@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration
+2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+	<definition name="register" extends="default-anonymous">
+        <put-attribute name="register-header" value="/WEB-INF/views/Register/register-header.jsp" />
+		<put-attribute name="register-body-right" value="/WEB-INF/views/Register/register.jsp" />
+	</definition>
+
+</tiles-definitions>
